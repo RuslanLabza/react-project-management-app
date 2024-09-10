@@ -1,8 +1,10 @@
 import Input from './Input';
 import Button from './Button';
+import Modal from './Modal';
 import { useRef } from 'react';
 
 export default function NewProject({ className, setProjectsData }) {
+  const modalRef = useRef(null);
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
   const dueDateRef = useRef(null);
@@ -12,6 +14,11 @@ export default function NewProject({ className, setProjectsData }) {
     const title = titleRef.current.getValue();
     const description = descriptionRef.current.getValue();
     const dueDate = dueDateRef.current.getValue();
+
+    if (!title.trim() || !description.trim() || !dueDate) {
+        modalRef.current.open();
+        return;
+    }
 
     setProjectsData((projectsData) => ({
       currentProjectId: projectsData.projects.length,
@@ -26,6 +33,10 @@ export default function NewProject({ className, setProjectsData }) {
   }
 
   return (
+    <>
+    <Modal ref={modalRef}>
+        <p className="text-lg font-semibold text-red-600 mb-6 text-center">Please fill in all fields.</p>
+    </Modal>
     <section className={className}>
       <form className="flex flex-col gap-4 w-full">
         <div className="flex justify-end gap-2 mb-4">
@@ -37,5 +48,6 @@ export default function NewProject({ className, setProjectsData }) {
         <Input ref={dueDateRef} type="date" placeholder="Due Date" label="Due Date" />
       </form>
     </section>
+    </>
   );
 }
