@@ -75,4 +75,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Ruslan Labza - [LinkedIn](https://www.linkedin.com/in/ruslanlabza)
 
-Project Link: [https://github.com/RuslanLabza/react-meta-capstone-project](https://github.com/RuslanLabza/react-project-management-app)
+Project Link: [https://github.com/RuslanLabza/react-project-management-app](https://github.com/RuslanLabza/react-project-management-app)
