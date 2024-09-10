@@ -26,15 +26,19 @@ function App() {
     return project;
   }
 
+  const onDeleteProject = () => {
+    setProjectsData((projectsData) => ({currentProjectId: null, projects: projectsData.projects.filter((project) => project.id !== projectsData.currentProjectId)}));
+  }
+
   return (
     <div className="h-screen w-3/6 mx-auto">
       <main className="flex mt-10">
-        <Sidebar className="bg-amber-800 w-64 h-screen p-4 rounded-r-lg" projects={projectsData.projects} setProjectsData={setProjectsData} />
+        <Sidebar className="bg-amber-800 w-64 h-screen p-4 rounded-r-lg" projectsData={projectsData} setProjectsData={setProjectsData} />
         {projectsData.currentProjectId === null ?  
         <NoProject className="flex-1 p-4" setProjectsData={setProjectsData} /> : 
         projectsData.currentProjectId === 'new' ? 
         <NewProject className="flex-1 p-4" setProjectsData={setProjectsData} /> : 
-        <Project className="flex-1 p-4" {...getProjectData()}/>}
+        <Project className="flex-1 p-4" onDelete={onDeleteProject} {...getProjectData()}/>}
       </main>
     </div>
   );

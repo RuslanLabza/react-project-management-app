@@ -14,6 +14,7 @@ export default function NewProject({ className, setProjectsData }) {
     const title = titleRef.current.getValue();
     const description = descriptionRef.current.getValue();
     const dueDate = dueDateRef.current.getValue();
+    const projectId = Math.random() * 1000000;
 
     if (!title.trim() || !description.trim() || !dueDate) {
         modalRef.current.open();
@@ -21,9 +22,9 @@ export default function NewProject({ className, setProjectsData }) {
     }
 
     setProjectsData((projectsData) => ({
-      currentProjectId: projectsData.projects.length,
+      currentProjectId: projectId,
       projects: [...projectsData.projects, {
-        id: projectsData.projects.length,
+        id: projectId,
         title,
         description,
         dueDate,
