@@ -21,7 +21,7 @@ This is a modern, responsive web application for project management, built with 
 - 👥 Team Collaboration
 - 📱 Responsive Design
 - 🚀 Fast Performance
-- 🎨 Intuitive UI/UX
+- 🎨 Intuitive UI/UX with Tailwind CSS
 
 ## React-Specific Features
 
@@ -39,6 +39,7 @@ This project leverages several React features and patterns:
 
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 
