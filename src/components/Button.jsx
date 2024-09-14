@@ -1,4 +1,6 @@
-export default function Button({ children, ...props }) {
+import {memo} from 'react';
+
+const Button = memo(function Button({ children, ...props }) {
   const primary =
     "px-4 py-2 bg-amber-950 text-white rounded hover:bg-amber-900 transition duration-300 ease-in-out";
   const secondary =
@@ -21,4 +23,6 @@ export default function Button({ children, ...props }) {
       {children}
     </button>
   );
-}
+})
+
+export default Button;
