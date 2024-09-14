@@ -12,6 +12,9 @@ export default class NewTask extends Component {
     this.state = {
       task: ''
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // Lifecycle hook for reacting on component mounting
@@ -64,12 +67,12 @@ export default class NewTask extends Component {
       <div className="flex items-center gap-2 mb-4">
         <input
           value={this.state.task}
-          onChange={this.handleChange.bind(this)}
+          onChange={this.handleChange}
           className="flex-1 p-2 border border-gray-300 rounded-md"
           type="text"
           placeholder="Add a task"
         />
-        <Button primary type="button" onClick={this.handleSubmit.bind(this)}>
+        <Button primary type="button" onClick={this.handleSubmit}>
           Add
         </Button>
       </div>
