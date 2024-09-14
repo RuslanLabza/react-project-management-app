@@ -23,14 +23,27 @@ export default class NewTask extends Component {
   // Lifecycle hook for reacting on component unmounting
   // componentWillUnmount() {}
 
-  // Forces a component to re-render.
+  // Forces a component to re-render. As changing props or state do.
   // forceUpdate(callback?) 
 
-  // If you define shouldComponentUpdate, React will call it to determine whether a re-render can be skipped. 
-  // If you are confident you want to write it by hand,
-  // you may compare this.props with nextProps and this.state with nextState and return false to tell React the update can be skipped.
+  // It should return an object to update the state, or null to update nothing.
+  // Use this method when you need to ensure that the component's state is synchronized with its incoming props.
+  // When you need to compute new state values based on changes in props, getDerivedStateFromProps can be useful.
+  // If your component needs to reset some parts of its state when certain props change, you can do so using this method.
+  // getDerivedStateFromProps(nextProps, prevState) {
+    // if (nextProps.userId !== prevState.userId) { - Update state if props have changed
+    //   return {
+    //     userId: nextProps.userId,
+    //     userData: {} - Reset user data when userId changes
+    //   };
+    // }
+    // return null;} - Return null if no state updates are required
+
+  // We have new props. Typical React dogma says that when a component receives new props, or new state, it should update.
+  // But our component is a little bit anxious and is going to ask permission first.
   // shouldComponentUpdate(nextProps, nextState, nextContext) 
 
+  // getSnapshotBeforeUpdate () {}
 
   handleChange(e) {
     this.setState({task: e.target.value});
