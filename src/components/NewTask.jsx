@@ -10,8 +10,8 @@ export default class NewTask extends Component {
     super(props);
 
     this.state = {
-      task: ''
-    }
+      task: "",
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,36 +27,36 @@ export default class NewTask extends Component {
   // componentWillUnmount() {}
 
   // Forces a component to re-render. As changing props or state do.
-  // forceUpdate(callback?) 
+  // forceUpdate(callback?)
 
   // It should return an object to update the state, or null to update nothing.
   // Use this method when you need to ensure that the component's state is synchronized with its incoming props.
   // When you need to compute new state values based on changes in props, getDerivedStateFromProps can be useful.
   // If your component needs to reset some parts of its state when certain props change, you can do so using this method.
   // getDerivedStateFromProps(nextProps, prevState) {
-    // if (nextProps.userId !== prevState.userId) { - Update state if props have changed
-    //   return {
-    //     userId: nextProps.userId,
-    //     userData: {} - Reset user data when userId changes
-    //   };
-    // }
-    // return null;} - Return null if no state updates are required
+  // if (nextProps.userId !== prevState.userId) { - Update state if props have changed
+  //   return {
+  //     userId: nextProps.userId,
+  //     userData: {} - Reset user data when userId changes
+  //   };
+  // }
+  // return null;} - Return null if no state updates are required
 
   // We have new props. Typical React dogma says that when a component receives new props, or new state, it should update.
   // But our component is a little bit anxious and is going to ask permission first.
-  // shouldComponentUpdate(nextProps, nextState, nextContext) 
+  // shouldComponentUpdate(nextProps, nextState, nextContext)
 
   // getSnapshotBeforeUpdate () {}
 
   handleChange(e) {
-    this.setState({task: e.target.value});
+    this.setState({ task: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.task.trim()) {
       this.props.onAddTask(this.state.task);
-      this.setState({task: ''});
+      this.setState({ task: "" });
     }
   }
 
@@ -79,6 +79,25 @@ export default class NewTask extends Component {
     );
   }
 }
+
+//How to use Store in class-based component:
+
+// 1. Create function where map state to props.
+// function mapStateToProps(state) {
+//   return {
+//     tasks: state.tasks
+//   }
+// }
+
+// 2. Create function where map dispatch to props.
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     changeState: () => dispatch({type: 'change state', payload: ''})
+//   }
+// }
+
+// 3. Use connect function from react-redux to create high-order component (HOC) from component NewTask.
+// connect(mapStateToProps, mapDispatchToProps)(NewTask)
 
 // Here the same component but using function approach:
 // export default function NewTask({ onAddTask }) {

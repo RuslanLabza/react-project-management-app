@@ -1,4 +1,4 @@
-import {memo} from 'react';
+import { memo } from "react";
 
 const Button = memo(function Button({ children, ...props }) {
   const primary =
@@ -23,6 +23,6 @@ const Button = memo(function Button({ children, ...props }) {
       {children}
     </button>
   );
-})
+});
 
 export default Button;
